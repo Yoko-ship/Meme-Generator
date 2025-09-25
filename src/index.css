@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@1,388&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: "SUSE Mono", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 388;
+  font-style: italic;
+}
+
+header{
+  padding: 2rem;
+  background-color: #FD4674;
+  width: 100%;
+}
+header ul{
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+header li{
+  font-size: 1.5rem;
+}
+header ul li a{
+  text-decoration: none;
+  color: white;
+}

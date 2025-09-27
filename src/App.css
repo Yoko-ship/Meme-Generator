@@ -51,45 +51,38 @@
     align-items: center;
     color: white;
     justify-content: center;
-    width: 50%;
-}
-.generate_present{
-    display: flex;
-    justify-content: center;
-    margin: 3rem ;
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .inputs{
     display: flex;
-    
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+    justify-content: space-evenly;
+    align-items: center;
 }
+
 .search{
     padding: 0.8rem;
-    border: 2px solid #ccc;
+    border: 2px solid #8B25AF;
     outline: none;
     border-radius: 10px;
     font-size: 2rem;
+    width: 100%;
 }
 
-.image-container{
-    margin-left: 3rem;
-    width: 60%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed rgba(0, 0, 0,.3);
-    border-radius: 10px;
-}
+
 .upload-container{
     position: relative;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+    text-align: center;
+    border: 2px dashed #8B25AF;
+    border-radius: 10px;
+    font-size: 2rem;
+    padding: 0.8rem;
 }
 .upload-container > p{
     font-size: 1.1rem;
@@ -104,18 +97,17 @@
     left: 0;
     bottom: 0;
     opacity: 0;
-
 }
 
 
 .confirm{
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 50%;
 }
 .confirm button{
     padding: 1rem;
-    width: 33%;
+    width: 100%;
     outline: none;
     border: none;
     border-radius: 10px;
@@ -128,13 +120,15 @@
 .meme{
     display: flex;
     gap: 20px;
-    justify-content: center;
     margin-bottom: 1rem;
+    width: 74%;
+    justify-content: center;
 }
 .meme input{
     padding: 0.8rem;
     border: 2px solid #ccc;
     outline: none;
+    border: 2px solid #3BBBFA;
     border-radius: 10px;
     font-size: 2rem;
     width: 33%;
@@ -144,7 +138,9 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    
 }
 .canvas-container button{
     padding: 1rem;
@@ -156,7 +152,9 @@
     background-color: #7A1E9A;
     color: white;
     font-size: 1.5rem;
+    width: 50%;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .unsplash{
@@ -176,9 +174,11 @@
 
 fieldset{
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin: 2rem;
+    border: 2px solid #B740CE;
     border-radius: 10px;
     font-size: 1.5rem;
+    width: 50%;
 }
 fieldset input{
     margin-right: 1rem;
@@ -186,8 +186,13 @@ fieldset input{
 
 
 @media screen and (max-width:960px) {
+
     .right{
         display: none;
+    }
+
+    fieldset{
+        width: 100%;
     }
     .inputs{
         display: flex;
@@ -197,19 +202,22 @@ fieldset input{
         align-items: center;
         justify-content: center;
     }
+    .meme,.meme input{
+        width: 100%;
+    }
+    .confirm,.confirm button{
+        width: 100%;
+    }
+    
 
-    .image-container{
-        width: 100%;
+    /* .image-container{
+        width: 90%;
         margin-left: 0;
-    }
-    .confirm button{
+    } */
+    .canvas-container,canvas,button{
         width: 100%;
     }
-    .header{
-        margin: 0.5rem;
-        width: 110%;
-    }
-    canvas{
-        width: 100%;
+    .canvas-container{
+        display: block;
     }
 }

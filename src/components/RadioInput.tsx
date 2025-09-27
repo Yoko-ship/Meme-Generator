@@ -4,11 +4,11 @@ export const RadioInput:React.FC<{setRadio:React.Dispatch<React.SetStateAction<s
   return (
     <fieldset className="radios">
         <div>
-        <input type="radio" value="auto-generated" id="auto-generated"  name="drone" onChange={(e) => setRadio(e.target.value)}/>
-        <label htmlFor="auto-generated">Сгенерировать шутку</label>
+        <input type="radio" value="create" id="create"  name="drone" onChange={(e) => setRadio(e.target.value)} defaultChecked/>
+        <label htmlFor="create">Сгенерировать шутку</label>
         </div>
         <div>
-          <input type="radio" value="" id="by-hand" name="drone" onChange={(e) => setRadio(e.target.value)}/>
+          <input type="radio" value="by-hand" id="by-hand" name="drone" onChange={(e) => setRadio(e.target.value)}/>
           <label htmlFor="by-hand">Написать самому</label>
         </div>
       </fieldset>

@@ -9,12 +9,12 @@ export const ByHandInput: React.FC<{
     <section className="meme">
       <input
         type="text"
-        placeholder="top-text"
+        placeholder="Top"
         onChange={(e) => setTopText(e.target.value)}
       />
       <input
         type="text"
-        placeholder="bottom"
+        placeholder="Bottom"
         onChange={(e) => setBottomText(e.target.value)}
       />
     </section>

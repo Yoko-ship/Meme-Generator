@@ -2,6 +2,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body{
@@ -11,20 +12,19 @@ body{
   font-style: italic;
 }
 
-header{
+.head{
   padding: 2rem;
   background-color: #FD4674;
-  width: 100%;
 }
-header ul{
+.head ul{
   display: flex;
   justify-content: space-evenly;
   list-style-type: none;
 }
-header li{
+.head li{
   font-size: 1.5rem;
 }
-header ul li a{
+.head ul li a{
   text-decoration: none;
   color: white;
 }

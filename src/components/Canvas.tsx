@@ -1,8 +1,9 @@
-import { useEffect, useRef} from "react"
+import { useEffect, useRef,useState} from "react"
 import "../App.css"
 
-export const Canvas:React.FC<{image:any,topText:string,bottomText:string}> = ({image,topText,bottomText})=>{
+export const Canvas:React.FC<{image:any,topText:string,bottomText:string,trigger:boolean}> = ({image,topText,bottomText,trigger})=>{
     const canvasRef = useRef<HTMLCanvasElement>(null)
+    const [information,setInformation] = useState("")
     function fitTextToWidth(ctx:CanvasRenderingContext2D,text:string,maxWidth:number,initialSize:number){
         let fontSize = initialSize
         do{
@@ -46,7 +47,8 @@ export const Canvas:React.FC<{image:any,topText:string,bottomText:string}> = ({i
             ctx.strokeText(bottomTxt,(canvas.width - ctx.measureText(bottomText).width)/2,bottomY)
             ctx.fillText(bottomTxt,(canvas.width - ctx.measureText(bottomText).width)/2,bottomY)
         }
-    },[image])
+
+    },[trigger])
 
 
     const saveImage = ()=>{
@@ -59,12 +61,34 @@ export const Canvas:React.FC<{image:any,topText:string,bottomText:string}> = ({i
         link.click()
     }
 
+    const copy = async()=>{
+        const canvas = canvasRef.current
+        if(!canvas) return
+        const blob:Blob | null = await new Promise((resolve) =>{
+            canvas.toBlob((b) => resolve(b),'image/png',0.9)
+        })
+        if(!blob){
+            console.error("Не удалось создать Blob из canvas")
+            return
+        }
+
+        try{
+            const clipboardItem = new ClipboardItem({'image/png':blob})
+            await navigator.clipboard.write([clipboardItem])
+            setInformation("Изображение скопировано в буфер обмена")
+        }catch(err){
+            setInformation(`Произошла ошибка при копировании ${err}`)
+        }
+    }  
+
     return(
         <div className="canvas-container"
-        
         >
             <canvas ref={canvasRef}/>
             <button onClick={saveImage}>Скачать</button>
+            <button onClick={copy}>Скопировать</button>
+
+            {information && <p>{information}</p>}
         </div>
     )
 }
